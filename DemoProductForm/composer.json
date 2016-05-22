@@ -1,0 +1,19 @@
+{
+    "require": {
+        "silex/silex": "~1.3",
+        "doctrine/dbal": "~2.2",
+        "twig/twig": "^1.24",
+        "symfony/security": "^2.7",
+        "symfony/form": "^3.0",
+        "symfony/validator": "^3.0",
+        "symfony/twig-bridge": "^3.0",
+        "ramsey/uuid": "^3.4",
+        "symfony/config": "^3.0",
+        "swiftmailer/swiftmailer": "^5.4"
+    },
+	"autoload": {
+		"psr-0": {
+			"demoproductform": "src/"
+		}
+	}
+}

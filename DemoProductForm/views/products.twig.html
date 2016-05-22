@@ -1,0 +1,27 @@
+{% extends "base.twig.html" %}
+{% block title %} Products{% endblock %}
+
+{% block content %}
+</br>
+</br>
+</br>
+<p> <center><h1>Products</h1></center>
+
+<table class="table">
+    <tr>
+        <th> Name </th>
+        <th> Image </th>
+        <th> Price </th>
+        <th> Details </th>
+    </tr>
+    {% for product in products %}
+    <tr>
+        <td> {{ product.name }} </td>
+        <td>  IMAGE </td>
+        <td> {{ product.price }}</td>
+        <td> <a href="{{ app.request.basepath }}/index.php/product/{{product.uuid}}"> <button type="button" class="btn btn-default">Details</button> </a> </td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}

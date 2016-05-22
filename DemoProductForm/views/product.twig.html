@@ -1,0 +1,64 @@
+{% extends "base.twig.html" %}
+{% block title %} Products{% endblock %}
+
+{% block content %}
+</br>
+</br>
+</br>
+<p> <center><h1>Product Detail</h1></center>
+
+<table class="table">
+    <tr>
+        <th> Name </th>
+        <th> Image </th>
+        <th> Price </th>
+        <th> Details </th>
+        <th> Stock </th>
+    </tr>
+    <tr>
+        <td> {{ product.name }} </td>
+        <td>  IMAGE </td>
+        <td> {{ product.price }}</td>
+        <td> {{ product.description }} </td>
+        <td> {{ product.stock }} </td>
+    </tr>
+</table>
+
+<p> <center><h1>Opinion</h1></center>
+
+<table class="table">
+    <tr>
+        <th> Email </th>
+        <th> Opinion </th>
+    </tr>
+    {% for opinion in opinions %}
+    <tr>
+        <td> {{ opinion.email }} </td>
+        <td>  {{ opinion.content }} </td>
+    </tr>
+    {% endfor %}
+</table>
+
+<p> <center><h1>Post your opinion</h1></center>
+
+<form action="{{ app.request.basepath }}/index.php/product/opinion/{{product.uuid}}" method="post" class="form-inline">
+    <table class="table">
+        {{ form_errors(form) }}
+        <tr>
+            <td><label for="email">Email :  </label></td>
+            <td>{{ form_row(form.email, {'attr' : {'class' : 'form-control'}, 'label' : ' ' } )  }}</td>
+        </tr>
+        <tr>
+            <td><label for="content">Content :  </label></td>
+            <td>{{ form_row(form.content, {'attr' : {'class' : 'form-control'}, 'label' : ' ' } )  }}</td>
+        </tr>
+        {{ form_row(form.uuidproduct, {'attr' : {'value' : '{{ product.uuid }}' }, 'label' : ' ' } )  }}
+        <tr>
+            <td><button id="submit" type="submit" class="btn btn-primary">Post</button></td>
+        </tr>
+        {{ form_rest(form) }}
+        </div>
+    </table>
+</form>
+
+{% endblock %}
